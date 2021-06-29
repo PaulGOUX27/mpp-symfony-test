@@ -20,7 +20,7 @@ class Task
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Message;
+    private $message;
 
     /**
      * @ORM\Column(type="boolean")
@@ -40,12 +40,12 @@ class Task
 
     public function getMessage(): ?string
     {
-        return $this->Message;
+        return $this->message;
     }
 
-    public function setMessage(string $Message): self
+    public function setMessage(string $message): self
     {
-        $this->Message = $Message;
+        $this->message = $message;
 
         return $this;
     }
