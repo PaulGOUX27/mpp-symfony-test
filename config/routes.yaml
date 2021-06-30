@@ -1,3 +1,20 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+task_index:
+    path: /task
+    controller: App\Controller\TaskController:index
+    methods: [GET]
+task_new:
+    path: /task
+    controller: App\Controller\TaskController:new
+    methods: [POST]
+task_show:
+    path: /task/{id}
+    controller: App\Controller\TaskController:show
+    methods: [GET]
+task_edit:
+    path: /task/{id}
+    controller: App\Controller\TaskController:edit
+    methods: [PUT]
+task_delete:
+    path: /task/{id}
+    controller: App\Controller\TaskController:edit
+    methods: [ DELETE ]
