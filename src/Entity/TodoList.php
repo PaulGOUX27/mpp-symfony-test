@@ -60,11 +60,11 @@ class TodoList
     }
 
     /**
-     * @return Collection|Task[]
+     * @return Task[]
      */
-    public function getTasks(): Collection
+    public function getTasks(): array
     {
-        return $this->tasks;
+        return $this->tasks->getValues();
     }
 
     public function addTask(Task $task): self

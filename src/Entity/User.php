@@ -139,11 +139,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|TodoList[]
+     * @return TodoList[]
      */
-    public function getTodoLists(): Collection
+    public function getTodoLists(): array
     {
-        return $this->todoLists;
+        return $this->todoLists->getValues();
     }
 
     public function addTodoList(TodoList $todoList): self
