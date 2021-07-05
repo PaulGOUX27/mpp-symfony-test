@@ -10,6 +10,7 @@ use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class UserService
@@ -18,15 +19,19 @@ class UserService
 
     private ValidatorInterface $validator;
 
+    private UserPasswordEncoderInterface $passwordEncoder;
+
     /**
      * UserService constructor.
      * @param UserDataService $userDataService
      * @param ValidatorInterface $validator
+     * @param UserPasswordEncoderInterface $passwordEncoder
      */
-    public function __construct(UserDataService $userDataService, ValidatorInterface $validator)
+    public function __construct(UserDataService $userDataService, ValidatorInterface $validator, UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->userDataService = $userDataService;
         $this->validator = $validator;
+        $this->passwordEncoder = $passwordEncoder;
     }
 
     public function getAll(): array
@@ -43,8 +48,7 @@ class UserService
     {
         $user = new User();
         $user->setEmail($data["email"]);
-        //TODO hash pwd
-        $user->setPassword($data["password"]);
+        $user->setPassword($this->passwordEncoder->encodePassword($user, $data["password"]));
 
         $errors = $this->validator->validate($user);
         if(count($errors) > 0) {
@@ -80,8 +84,9 @@ class UserService
         if (!$user) {
             throw new NotFoundHttpException();
         }
-        //TODO hash pwd
-        $user->setPassword($data["password"]);
+        if(isset($data["password"])) {
+            $user->setPassword($this->passwordEncoder->encodePassword($user, $data["password"]));
+        }
 
         $errors = $this->validator->validate($user);
         if(count($errors) > 0) {

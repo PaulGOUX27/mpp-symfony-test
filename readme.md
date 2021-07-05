@@ -10,7 +10,7 @@ Vous devrez **exposer** une **API**.
 
 ### Fonctionnalités
 
-- [ ] Se connecter via un identifiant (exemple : email / mot de passe)
+- [x] Se connecter via un identifiant (exemple : email / mot de passe)
 - [ ] Créer une todo-list et des tâches associées
 - [ ] Ajouter une tâche dans une todo-list existante
 - [ ] Seul le propriétaire de la todo-list peut la supprimer
