@@ -41,3 +41,25 @@ todo_list_update_action:
     path: /todo-list/{id}
     controller: App\Controller\TodoListController::updateAction
     methods: [ PUT ]
+
+# Task endpoints
+task_index:
+    path: /task
+    controller: App\Controller\TaskController::indexAction
+    methods : [ GET ]
+task_create_action:
+    path: /task
+    controller: App\Controller\TaskController::createAction
+    methods: [ POST ]
+task_get_one_action:
+    path: /task/{id}
+    controller: App\Controller\TaskController::getOneAction
+    methods: [ GET ]
+task_delete_action:
+    path: /task/{id}
+    controller: App\Controller\TaskController::deleteAction
+    methods: [ DELETE ]
+task_update_action:
+    path: /task/{id}
+    controller: App\Controller\TaskController::updateAction
+    methods: [ PUT ]

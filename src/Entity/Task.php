@@ -6,6 +6,8 @@ use App\Repository\TaskRepository;
 use Doctrine\ORM\Mapping as ORM;
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=TaskRepository::class)
@@ -26,12 +28,14 @@ class Task
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\NotNull()
      */
     private $done;
 
     /**
      * @ORM\ManyToOne(targetEntity=TodoList::class, inversedBy="tasks")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotNull()
      */
     private $todoList;
 
