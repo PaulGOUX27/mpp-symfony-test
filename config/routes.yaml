@@ -2,3 +2,7 @@ index:
     path: /user
     controller: App\Controller\UserController::indexAction
     methods : [ GET ]
+create_action:
+    path: /user
+    controller: App\Controller\UserController::createAction
+    methods: [ POST ]
