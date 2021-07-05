@@ -19,25 +19,25 @@ class TodoList
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\OneToMany(targetEntity=Task::class, mappedBy="todoList")
      */
-    private $tasks;
+    private Collection $tasks;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="todoLists")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private ?User $user;
 
-    public function __construct()
+    #[Pure] public function __construct()
     {
         $this->tasks = new ArrayCollection();
     }
