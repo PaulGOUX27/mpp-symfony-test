@@ -1,65 +1,68 @@
+api_login_check:
+    path: /api/login_check
+
 # User endpoints
 user_index:
-    path: /user
+    path: /api/user
     controller: App\Controller\UserController::indexAction
     methods : [ GET ]
 user_create_action:
-    path: /user
+    path: /api/user
     controller: App\Controller\UserController::createAction
     methods: [ POST ]
 user_get_one_action:
-    path: /user/{id}
+    path: /api/user/{id}
     controller: App\Controller\UserController::getOneAction
     methods: [ GET ]
 user_delete_action:
-    path: /user/{id}
+    path: /api/user/{id}
     controller: App\Controller\UserController::deleteAction
     methods: [ DELETE ]
 user_update_action:
-    path: /user/{id}
+    path: /api/user/{id}
     controller: App\Controller\UserController::updateAction
     methods: [ PUT ]
 
 # TodoList endpoints
 todo_list_index:
-    path: /todo-list
+    path: /api/todo-list
     controller: App\Controller\TodoListController::indexAction
     methods : [ GET ]
 todo_list_create_action:
-    path: /todo-list
+    path: /api/todo-list
     controller: App\Controller\TodoListController::createAction
     methods: [ POST ]
 todo_list_get_one_action:
-    path: /todo-list/{id}
+    path: /api/todo-list/{id}
     controller: App\Controller\TodoListController::getOneAction
     methods: [ GET ]
 todo_list_delete_action:
-    path: /todo-list/{id}
+    path: /api/todo-list/{id}
     controller: App\Controller\TodoListController::deleteAction
     methods: [ DELETE ]
 todo_list_update_action:
-    path: /todo-list/{id}
+    path: /api/todo-list/{id}
     controller: App\Controller\TodoListController::updateAction
     methods: [ PUT ]
 
 # Task endpoints
 task_index:
-    path: /task
+    path: /api/task
     controller: App\Controller\TaskController::indexAction
     methods : [ GET ]
 task_create_action:
-    path: /task
+    path: /api/task
     controller: App\Controller\TaskController::createAction
     methods: [ POST ]
 task_get_one_action:
-    path: /task/{id}
+    path: /api/task/{id}
     controller: App\Controller\TaskController::getOneAction
     methods: [ GET ]
 task_delete_action:
-    path: /task/{id}
+    path: /api/task/{id}
     controller: App\Controller\TaskController::deleteAction
     methods: [ DELETE ]
 task_update_action:
-    path: /task/{id}
+    path: /api/task/{id}
     controller: App\Controller\TaskController::updateAction
     methods: [ PUT ]
