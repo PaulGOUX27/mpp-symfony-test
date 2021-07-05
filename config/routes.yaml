@@ -6,3 +6,15 @@ create_action:
     path: /user
     controller: App\Controller\UserController::createAction
     methods: [ POST ]
+get_one_action:
+    path: /user/{id}
+    controller: App\Controller\UserController::getOneAction
+    methods: [ GET ]
+delete_action:
+    path: /user/{id}
+    controller: App\Controller\UserController::deleteAction
+    methods: [ DELETE ]
+update_action:
+    path: /user/{id}
+    controller: App\Controller\UserController::updateAction
+    methods: [ PUT ]

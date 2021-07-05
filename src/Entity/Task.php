@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\TaskRepository;
 use Doctrine\ORM\Mapping as ORM;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * @ORM\Entity(repositoryClass=TaskRepository::class)
@@ -32,6 +34,17 @@ class Task
      * @ORM\JoinColumn(nullable=false)
      */
     private $todoList;
+
+    #[Pure] #[ArrayShape(["id" => "int|null", "message" => "null|string", "done" => "bool|null", "todoListId" => "int|null"])]
+    public function toJson(): array
+    {
+        return array(
+            "id" => $this->getId(),
+            "message" => $this->getMessage(),
+            "done" => $this->getDone(),
+            "todoListId" => $this->getTodoList()->getId()
+        );
+    }
 
     public function getId(): ?int
     {
